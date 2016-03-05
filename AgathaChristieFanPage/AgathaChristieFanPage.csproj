@@ -124,6 +124,11 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Styles\images\burger-icon-hover.png" />
+    <Content Include="Styles\images\burger-icon.png" />
+    <Content Include="Styles\images\main-header-image.jpg" />
+    <Content Include="Styles\images\site-logo-icon.png" />
+    <Content Include="Styles\images\site-logo.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +149,7 @@
     <Content Include="Views\MasterLayout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Styles\MasterLayout.less" />
+    <Content Include="Styles\constants.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

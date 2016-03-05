@@ -1,3 +1,191 @@
-﻿body {
-    background-color: salmon;
+﻿@import "constants.less";
+
+body
+{
+  margin: 0;
+  background-color: @main-light-colour;
+}
+
+header 
+{
+  .logo-section
+  {
+    height: 80px;
+    background-color: @main-dark-colour;
+    text-align: center;
+
+    img.logo
+    {
+      height: 110px;
+      margin: 25px 0;
+    }
+  }
+
+  nav
+  {
+    height: 80px;
+    display: block;
+    width: 100%;
+    text-align: center;
+
+    ul
+    {
+      padding: 0;
+      margin: auto;
+      display: table;
+      width: 70%;
+      font-size: 15px;
+      font-family: 'Black Ops One', cursive;
+
+      li
+      {
+        display: table-cell;
+        width: 20%;
+        text-align: center;
+        vertical-align: middle;
+        height: 80px;
+
+        a
+        {
+          color: @main-dark-colour;
+          text-decoration: none;
+        
+          &:hover
+          {
+            color: @secondary-color;
+          }
+        }
+      }
+    }
+
+    
+    .burger-menu
+    {
+      display: none;
+      height: 30px;
+      width: 35px;
+      float: right;
+      margin: 5px;
+      background-size: 60% 60%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url("../Styles/images/burger-icon.png");
+
+      &:hover
+      {
+        background-image: url("../Styles/images/burger-icon-hover.png")
+      }
+    }
+  }
+
+  .header-image
+  {
+    height: 380px;
+    background-image: url("../Styles/images/main-header-image.jpg");
+    background-size: 100% 100%;
+  }
+}
+  
+.body-content
+{
+  background-color: white;
+  padding: 30px;
+  box-sizing: border-box;
+  width: 75%;
+  min-width: 960px;
+  margin: 30px auto 50px auto;
+  border-radius: 10px;
+}
+
+footer
+{
+  height: 50px;
+  box-sizing: border-box;
+  background-color: @main-dark-colour;
+  padding: 20px;
+  color: @main-light-colour;
+  text-align: right;
+}
+
+@media(max-width: 999px)
+{
+  header 
+  {
+    .logo-section
+    {
+      height: 50px;
+
+      img.logo
+      {
+        height: 80px;
+        margin: 10px 0;
+      }
+    }
+
+  nav
+  {
+    height: 50px;
+
+    ul li
+    {
+      height: 50px;
+    }
+  }
+
+  .header-image
+  {
+    height: 200px;
+  }
+}
+  
+  .body-content
+  {
+    margin: 10px 10px 20px 10px;
+    width: auto;
+    min-width: unset;
+  }
+
+  footer
+  {
+    height: 40px;
+    padding: 10px;
+  }
+}
+
+@media(max-width: 729px)
+{
+  header 
+  {
+    .logo-section
+    {
+      height: 40px;
+      text-align: left;
+
+      img.logo
+      {
+        height: 60px;
+        margin: 10px;
+      }
+    }
+
+    nav
+    {
+      height: 40px;
+
+      ul
+      {
+        display: none;
+      }
+
+      .burger-menu
+      {
+        display: block;
+      }
+    }
+
+    .header-image
+    {
+      height: 150px;
+    }
+  }
 }

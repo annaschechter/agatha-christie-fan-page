@@ -2,21 +2,37 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Agatha Christie Fan Page">
     <title>Agatha Christie Fan Page</title>
     <link rel="stylesheet" type="text/css" href="~/Styles/MasterLayout.less">
+    <link rel="shortcut icon" href="~/Styles/images/site-logo-icon.png">
+    <link href='https://fonts.googleapis.com/css?family=Black+Ops+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <header>
+        <section class="logo-section">
+            <a href='@Url.Action("Index", "Home")'>
+                <img class ="logo" src='@Url.Content("~/Styles/images/site-logo.png")' />
+            </a>
+        </section>
         <nav>
             <ul>
-                <li>Home</li>
-                <li>Logo</li>
-                <li>Quiz</li>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li></li>
+                <li><a href="#">LOGO</a></li>
+                <li><a href="#">QUIZ</a></li>
             </ul>
+            <div class="burger-menu"></div>
         </nav>
+        <section class="header-image"></section>
     </header>
-    <div>
+
+    <section class="body-content">
         @RenderBody()
-    </div>
+    </section>
+    <footer>
+        <span>Author: Anna Schechter</span>
+    </footer>
 </body>
 </html>
