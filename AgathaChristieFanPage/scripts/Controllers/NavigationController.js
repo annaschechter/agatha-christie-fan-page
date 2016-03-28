@@ -3,8 +3,17 @@ var Controllers;
 (function (Controllers) {
     var NavigationController = (function () {
         function NavigationController($scope) {
+            var _this = this;
             this._scope = $scope;
-            this._scope.Alert = function () { window.alert("hello"); };
+            this._scope.OpenMenuDrawer = function () {
+                if (_this._scope.IsMenuDrawerOpen) {
+                    _this._scope.$broadcast("close-menu-drawer");
+                }
+                else {
+                    _this._scope.$broadcast("open-menu-drawer");
+                }
+                _this._scope.IsMenuDrawerOpen = !_this._scope.IsMenuDrawerOpen;
+            };
         }
         NavigationController.$inject = ["$scope"];
         return NavigationController;
@@ -12,4 +21,3 @@ var Controllers;
     Controllers.NavigationController = NavigationController;
 })(Controllers || (Controllers = {}));
 app.controller("Navigation_Controller", Controllers.NavigationController);
-//# sourceMappingURL=NavigationController.js.map

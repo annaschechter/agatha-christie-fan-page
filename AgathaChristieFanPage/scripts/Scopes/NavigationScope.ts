@@ -1,7 +1,8 @@
 ﻿module Scopes
 {
-    export class NavigationScope
+    export interface NavigationScope extends ng.IScope
     {
-        Alert: () => void;
+        IsMenuDrawerOpen: boolean;
+        OpenMenuDrawer: () => void;
     }
 }

@@ -146,9 +146,12 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\jquery-2.2.2.min.js" />
     <Content Include="Styles\images\burger-icon-hover.png" />
     <Content Include="Styles\images\burger-icon.png" />
     <Content Include="Styles\images\main-header-image.jpg" />
+    <Content Include="Styles\images\menu-close-icon-hover.png" />
+    <Content Include="Styles\images\menu-close-icon.png" />
     <Content Include="Styles\images\site-logo-icon.png" />
     <Content Include="Styles\images\site-logo.png" />
     <Content Include="Web.config" />
@@ -186,6 +189,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\ACFanPage.ts" />
     <TypeScriptCompile Include="Scripts\Controllers\NavigationController.ts" />
+    <TypeScriptCompile Include="Scripts\Directives\MenuDrawerDirective.ts" />
     <TypeScriptCompile Include="Scripts\Scopes\NavigationScope.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />

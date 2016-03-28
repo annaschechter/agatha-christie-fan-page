@@ -21,11 +21,22 @@
                 <li><a href="#">HOME</a></li>
                 <li><a href="#">ABOUT</a></li>
                 <li></li>
-                <li><a href="#">LOGO</a></li>
                 <li><a href="#">QUIZ</a></li>
+                <li><a href="#">FORUM</a></li>
             </ul>
-            <button class="burger-menu" ng-click="Alert()"></button>
+            <button ng-class="{'menu-open': IsMenuDrawerOpen}" class="burger-menu" ng-click="OpenMenuDrawer()"></button>
         </nav>
+        <section>
+            <div class="menu-drawer" menu-drawer-directive>
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">QUIZ</a></li>
+                    <li><a href="#">FORUM</a></li>
+                </ul>
+            </div>
+        </section>
+
         <section class="header-image"></section>
     </header>
 

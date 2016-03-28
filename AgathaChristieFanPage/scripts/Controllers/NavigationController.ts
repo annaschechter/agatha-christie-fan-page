@@ -10,7 +10,18 @@ module Controllers
 
         constructor($scope: Scopes.NavigationScope){
             this._scope = $scope;
-            this._scope.Alert = () => { window.alert("hello"); }
+            this._scope.OpenMenuDrawer = () => {
+                if (this._scope.IsMenuDrawerOpen)
+                {
+                    this._scope.$broadcast("close-menu-drawer");
+                }
+                else
+                {
+                    this._scope.$broadcast("open-menu-drawer");
+                }
+                
+                this._scope.IsMenuDrawerOpen = !this._scope.IsMenuDrawerOpen;
+            }
         }
     }
 }

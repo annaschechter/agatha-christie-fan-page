@@ -11,10 +11,12 @@ namespace AgathaChristieFanPage
             #endif
 
             var angularBundle = new ScriptBundle("~/bundle/angular");
+            angularBundle.Include("~/Scripts/jquery-2.2.2.min.js");
             angularBundle.Include("~/Scripts/angular.min.js");
             angularBundle.Include("~/Scripts/ACFanPage.js");
-            angularBundle.Include("~/Scripts/Controllers/NavigationController.js");
-            angularBundle.Include("~/Scripts/Scopes/NavigationScope.js");
+            angularBundle.Include("~/Scripts/Controllers/*.js");
+            angularBundle.Include("~/Scripts/Directives/*.js");
+            angularBundle.Include("~/Scripts/Scopes/*.js");
 
             var stylesBundle = new StyleBundle("~/bundle/styles");
             stylesBundle.Include("~/Styles/masterLayout.less");

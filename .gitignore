@@ -1,4 +1,8 @@
 
+bin/
+obj/
+*.suo
+
 # Created by https://www.gitignore.io/api/visualstudio
 
 ### VisualStudio ###
