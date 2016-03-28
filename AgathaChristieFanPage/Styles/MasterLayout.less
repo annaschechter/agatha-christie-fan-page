@@ -1,0 +1,260 @@
+﻿@main-dark-colour: #403531;
+@main-light-colour: #f6edea;
+@secondary-color: #A68D8A;
+
+body
+{
+  margin: 0;
+  background-color: @main-light-colour;
+}
+
+header 
+{
+  position: relative;
+
+  .logo-section
+  {
+    height: 80px;
+    background-color: @main-dark-colour;
+    text-align: center;
+
+    img.logo
+    {
+      height: 110px;
+      margin: 25px 0;
+    }
+  }
+
+  nav
+  {
+    height: 80px;
+    display: block;
+    width: 100%;
+    text-align: center;
+
+    ul
+    {
+      padding: 0;
+      margin: auto;
+      display: table;
+      width: 70%;
+      font-size: 15px;
+      font-family: 'Black Ops One', cursive;
+
+      li
+      {
+        display: table-cell;
+        width: 20%;
+        text-align: center;
+        vertical-align: middle;
+        height: 80px;
+
+        a
+        {
+          color: @main-dark-colour;
+          text-decoration: none;
+        
+          &:hover
+          {
+            color: @secondary-color;
+          }
+        }
+      }
+    }
+
+    
+    .burger-menu
+    {
+      background-color: transparent;
+      border: none;
+      display: none;
+      height: 30px;
+      width: 35px;
+      float: right;
+      margin: 5px 10px;
+      background-size: 90% 90%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url("../Styles/images/burger-icon.png");
+
+      &.menu-open
+      {
+        background-image: url("../Styles/images/menu-close-icon.png");
+        background-size: 75% 75%;
+
+        &:hover
+        {
+          background-image: url("../Styles/images/menu-close-icon-hover.png");
+        }
+      }
+
+      &:hover
+      {
+        background-image: url("../Styles/images/burger-icon-hover.png")
+      }
+    }
+  }
+
+    .menu-drawer
+    {
+      position: absolute;
+      right: 0;
+      top: 79px;
+      z-index: 2;
+      height: 100%;
+      width: 200px;
+      box-sizing: border-box;
+      background-color: @main-light-colour;
+      padding: 10px;
+
+      ul
+      {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li
+        {
+          height: 40px;
+          width: 100%;
+          background-color: @secondary-color;
+          margin: 4px 0;
+          border-radius: 5px;
+          
+          font-size: 12px;
+          font-family: 'Black Ops One', cursive;
+
+          a
+          {
+            display: block;
+            height: 100%;
+            color: #ffffff;
+            text-decoration: none;
+            text-align: center;
+            line-height: 40px;
+          }
+
+          &:hover
+          {
+            background-color: @main-dark-colour;
+          }
+        }
+      }
+    }
+
+  .header-image
+  {
+    height: 380px;
+    background-image: url("../Styles/images/main-header-image.jpg");
+    background-size: 100% 100%;
+  }
+}
+  
+.body-content
+{
+  background-color: white;
+  padding: 30px;
+  box-sizing: border-box;
+  width: 75%;
+  min-width: 960px;
+  margin: 30px auto 50px auto;
+  border-radius: 10px;
+}
+
+footer
+{
+  height: 50px;
+  box-sizing: border-box;
+  background-color: @main-dark-colour;
+  padding: 20px;
+  color: @main-light-colour;
+  text-align: right;
+}
+
+@media(max-width: 999px)
+{
+  header 
+  {
+    .logo-section
+    {
+      height: 50px;
+
+      img.logo
+      {
+        height: 75px;
+        margin: 10px 0;
+      }
+    }
+
+  nav
+  {
+    height: 50px;
+
+    ul 
+    {
+      font-size: 12px;
+
+      li
+      {
+        height: 50px;
+      }
+    }
+  }
+
+  .header-image
+  {
+    height: 200px;
+  }
+}
+  
+  .body-content
+  {
+    margin: 10px 10px 20px 10px;
+    width: auto;
+    min-width: unset;
+  }
+
+  footer
+  {
+    height: 40px;
+    padding: 10px;
+  }
+}
+
+@media(max-width: 729px)
+{
+  header 
+  {
+    .logo-section
+    {
+      height: 40px;
+      text-align: left;
+
+      img.logo
+      {
+        height: 55px;
+        margin: 10px;
+      }
+    }
+
+    nav
+    {
+      height: 40px;
+
+      ul
+      {
+        display: none;
+      }
+
+      .burger-menu
+      {
+        display: block;
+      }
+    }
+
+    .header-image
+    {
+      height: 150px;
+    }
+  }
+}

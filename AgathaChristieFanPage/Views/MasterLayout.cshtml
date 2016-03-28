@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Agatha Christie Fan Page">
+    <title>Agatha Christie Fan Page</title>
+    <link rel="shortcut icon" href="~/Styles/images/site-logo-icon.png">
+    <link href='https://fonts.googleapis.com/css?family=Black+Ops+One' rel='stylesheet' type='text/css'>
+    @Styles.Render("~/bundle/styles")
+    @Scripts.Render("~/bundle/angular")
+</head>
+<body ng-app="ACFanPage">
+    <header ng-controller="Navigation_Controller">
+        <section class="logo-section">
+            <a href='@Url.Action("Index", "Home")'>
+                <img class ="logo" src='@Url.Content("~/Styles/images/site-logo.png")' />
+            </a>
+        </section>
+        <nav>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li></li>
+                <li><a href="#">QUIZ</a></li>
+                <li><a href="#">FORUM</a></li>
+            </ul>
+            <button ng-class="{'menu-open': IsMenuDrawerOpen}" class="burger-menu" ng-click="OpenMenuDrawer()"></button>
+        </nav>
+        <section>
+            <div class="menu-drawer" menu-drawer-directive>
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">QUIZ</a></li>
+                    <li><a href="#">FORUM</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="header-image"></section>
+    </header>
+
+    <section class="body-content">
+        @RenderBody()
+    </section>
+    <footer>
+        <span>Author: Anna Schechter</span>
+    </footer>
+</body>
+</html>
