@@ -18,3 +18,4 @@ var Directives;
     Directives.MenuDrawerDirective = MenuDrawerDirective;
     app.directive("menuDrawerDirective", Directives.MenuDrawerDirective);
 })(Directives || (Directives = {}));
+//# sourceMappingURL=MenuDrawerDirective.js.map
