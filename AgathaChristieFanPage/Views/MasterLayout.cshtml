@@ -4,12 +4,13 @@
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="Agatha Christie Fan Page">
     <title>Agatha Christie Fan Page</title>
-    <link rel="stylesheet" type="text/css" href="~/Styles/MasterLayout.less">
     <link rel="shortcut icon" href="~/Styles/images/site-logo-icon.png">
     <link href='https://fonts.googleapis.com/css?family=Black+Ops+One' rel='stylesheet' type='text/css'>
+    @Styles.Render("~/bundle/styles")
+    @Scripts.Render("~/bundle/angular")
 </head>
-<body>
-    <header>
+<body ng-app="ACFanPage">
+    <header ng-controller="Navigation_Controller">
         <section class="logo-section">
             <a href='@Url.Action("Index", "Home")'>
                 <img class ="logo" src='@Url.Content("~/Styles/images/site-logo.png")' />
@@ -23,7 +24,7 @@
                 <li><a href="#">LOGO</a></li>
                 <li><a href="#">QUIZ</a></li>
             </ul>
-            <div class="burger-menu"></div>
+            <button class="burger-menu" ng-click="Alert()"></button>
         </nav>
         <section class="header-image"></section>
     </header>
