@@ -11,16 +11,21 @@ namespace AgathaChristieFanPage
 
     public class DbService : IDbService
     {
+        private ApplicationDbContext _applicationDbContext;
+
+        public DbService()
+        {
+            _applicationDbContext = new ApplicationDbContext();
+        }
+
         public IEnumerable<NovelModel> GetAllNovels()
         {
-            ApplicationDbContext applicationDbContext = new ApplicationDbContext();
-            return applicationDbContext.Novels;
+            return _applicationDbContext.Novels;
         }
 
         public IEnumerable<ImageModel> GetAllImages()
         {
-            ApplicationDbContext applicationDbContext = new ApplicationDbContext();
-            return applicationDbContext.Images;
+            return _applicationDbContext.Images;
         }
     }
 }

@@ -20,6 +20,7 @@ namespace AgathaChristieFanPage
 
             var stylesBundle = new StyleBundle("~/bundle/styles");
             stylesBundle.Include("~/Styles/masterLayout.less");
+            stylesBundle.Include("~/Styles/readingChecklist.less");
             stylesBundle.Transforms.Add(new LessTransform());
             stylesBundle.Transforms.Add(new CssMinify());
 

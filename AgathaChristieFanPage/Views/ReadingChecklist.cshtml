@@ -1,0 +1,18 @@
+﻿@model AgathaChristieFanPage.ViewModels.ReadingChecklistViewModel
+
+@{ Layout = ""; }
+
+<table>
+    @foreach (var novel in Model.Novels)
+    {
+        <tr>
+            <td><img class="thumbnail" src="@novel.ThumbnailUrl" /></td>
+            <td>@novel.NovelName</td>
+            <td>@novel.PublishingYear</td>
+            <td>@novel.Category</td>
+            <td>Read</td>
+            <td>Watched</td>
+            <td>Own a copy</td>
+        </tr>
+    }
+</table>
