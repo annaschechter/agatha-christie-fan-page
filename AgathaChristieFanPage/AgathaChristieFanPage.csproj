@@ -180,6 +180,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReadingChecklistController.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModelBuilders\ReadingChecklistModelBuilder.cs" />
     <Compile Include="Services\DbService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -188,7 +189,8 @@
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\NovelModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\ReadingChecklistViewModel.cs" />
+    <Compile Include="ViewModels\ReadingChecklistItem.cs" />
+    <Compile Include="ViewModels\ReadingChecklist.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

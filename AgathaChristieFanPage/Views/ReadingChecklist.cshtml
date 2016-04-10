@@ -1,18 +1,34 @@
-﻿@model AgathaChristieFanPage.ViewModels.ReadingChecklistViewModel
+﻿@model AgathaChristieFanPage.ViewModels.ReadingChecklist
 
 @{ Layout = ""; }
 
-<table>
-    @foreach (var novel in Model.Novels)
-    {
-        <tr>
-            <td><img class="thumbnail" src="@novel.ThumbnailUrl" /></td>
-            <td>@novel.NovelName</td>
-            <td>@novel.PublishingYear</td>
-            <td>@novel.Category</td>
-            <td>Read</td>
-            <td>Watched</td>
-            <td>Own a copy</td>
-        </tr>
-    }
-</table>
+<div class="page-title">
+    <h1>READING CHECKLIST</h1>
+</div>
+<article class="reading-checklist">
+    <table>
+        @foreach (var novel in Model.Novels)
+        {
+            <tr class="checklist-item">
+                <td class="thumbnail-cell"><img class="thumbnail" src="@novel.ThumbnailUrl" /></td>
+                <td class="novel-name-cell">@novel.NovelName</td>
+                <td class="publishing-year-cell">Published in @novel.PublishingYear</td>
+                <td class="category-cell">@novel.Category Series</td>
+                <td class="checkbox-cell">
+                    <div>
+                        <input id="read-@novel.NovelName" type="checkbox" name="read">
+                        <label for="read-@novel.NovelName">Read</label>
+                    </div>
+                    <div>
+                        <input id="watched-@novel.NovelName" type="checkbox" name="watched">
+                        <label for="watched-@novel.NovelName">Watched</label>
+                    </div>
+                    <div>
+                        <input id="ownACopy-@novel.NovelName" type="checkbox" name="ownACopy">
+                        <label for="ownACopy-@novel.NovelName">Own a Copy</label>
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+</article>

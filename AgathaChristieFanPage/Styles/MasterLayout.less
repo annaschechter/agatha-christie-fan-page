@@ -5,7 +5,6 @@
 body
 {
   margin: 0;
-  background-color: @main-light-colour;
 }
 
 header 
@@ -31,6 +30,7 @@ header
     display: block;
     width: 100%;
     text-align: center;
+    background-color: @main-light-colour;
 
     ul
     {
@@ -153,16 +153,44 @@ header
 .body-content
 {
   background-color: white;
-  padding: 30px;
+  color: @main-dark-colour;
   box-sizing: border-box;
   width: 75%;
   min-width: 960px;
-  margin: 30px auto 50px auto;
+  margin: 25px auto 50px auto;
   border-radius: 10px;
+  font-family: 'PT Serif', serif;
+  font-size: 14px;
+
+  .page-title
+  {
+    margin: auto;
+
+    h1
+    {
+      border: solid 2px @secondary-color;
+      padding: 5px;
+      font-size: 18px;
+      display: inline-block;
+      font-family: 'Black Ops One', cursive;
+      font-weight: normal;
+    }
+
+    &:before, &:after
+    {
+      content: "";
+      display: inline-block;
+      width: calc(~"(100% - 220px - 32px)/2");
+      border-bottom: solid 2px @secondary-color;
+      margin: 0 8px;
+    }
+  }
 }
 
 footer
 {
+  font-family: 'PT Serif', serif;
+  font-size: 12px;
   height: 50px;
   box-sizing: border-box;
   background-color: @main-dark-colour;
@@ -212,6 +240,19 @@ footer
     margin: 10px 10px 20px 10px;
     width: auto;
     min-width: unset;
+
+    .page-title
+    {
+      h1
+      {
+        font-size: 16px;
+      }
+      
+      &:before, &:after
+      {
+        width: calc(~"(100% - 200px - 32px)/2");
+      }
+    }
   }
 
   footer
@@ -221,7 +262,7 @@ footer
   }
 }
 
-@media(max-width: 729px)
+@media(max-width: 699px)
 {
   header 
   {
@@ -256,5 +297,19 @@ footer
     {
       height: 150px;
     }
+  }
+
+  .body-content .page-title
+  {
+      h1
+      {
+        font-size: 12px;
+      }
+      
+      &:before, &:after
+      {
+        width: calc(~"(100% - 155px - 8px)/2");
+        margin: 0 2px;
+      }
   }
 }

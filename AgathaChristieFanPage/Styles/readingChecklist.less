@@ -2,8 +2,161 @@
 @main-light-colour: #f6edea;
 @secondary-color: #A68D8A;
 
-.thumbnail
+.reading-checklist
 {
-  width: 35px;
-  height: 50px;
+  table
+  {
+    border-spacing: 0 10px;
+    width: 100%;
+
+    .checklist-item
+    {
+      height: 60px;
+      background-color: @main-light-colour;
+      width: 100%;
+      position: relative;
+      
+      .thumbnail-cell
+      {
+        width: 60px;
+
+        .thumbnail
+        {
+          width: auto;
+          height: 50px;
+          padding: 6px 15px 2px 15px;
+          cursor: pointer;
+        }
+      }
+
+      .novel-name-cell
+      {
+        width: 235px;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover
+        {
+          text-decoration: underline;
+        }
+      }
+
+      .publishing-year-cell
+      {
+        width: 150px;
+        font-size: 13px;
+      }
+
+      .category-cell
+      {
+        width: 170px;
+        font-size: 13px;
+      }
+
+      .checkbox-cell
+      {
+        text-align: right;
+        font-family: 'Black Ops One', cursive;
+        font-size: 13px;
+
+        div
+        {
+          display: inline-block;
+          padding-right: 10px;
+          vertical-align: middle;
+
+          input[type=checkbox] 
+          {
+            display: none;
+          }
+
+          label
+          {
+            cursor: pointer;
+            vertical-align: middle;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+            &:before
+            {
+              content: "\2713";
+              color:transparent;
+              font-size: 37px;
+              font-family: 'Black Ops One', cursive;
+              display: inline-block;
+              width: 22px;
+              height: 22px;
+              margin-right: 8px;
+              text-align: center;
+              border: solid 1.7px @secondary-color;
+              line-height: 9px;
+            }
+          }
+
+          input[type=checkbox]:checked+label:before
+          {
+            color: @main-dark-colour;
+            line-height: 9px;
+          }
+        }
+      }
+    }
+  }
 }
+
+@media(max-width: 999px)
+{
+  .novel-name-cell, .publishing-year-cell, .category-cell
+  {
+    display: block;
+  }
+
+  .novel-name-cell
+  {
+    padding-top: 8px;
+  }
+
+  .category-cell
+  {
+    padding-bottom: 8px;
+  }
+}
+
+@media(max-width: 699px)
+{
+  .reading-checklist table .checklist-item .checkbox-cell
+  {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    position: absolute;
+    width: calc(~"100% - 20px");
+    left: 10px;
+  }
+
+  .reading-checklist table .checklist-item
+  {
+    height: 120px
+  }
+
+  .thumbnail-cell
+  {
+    vertical-align: top;
+  }
+
+  .reading-checklist table .checklist-item .checkbox-cell
+  {
+    margin-top: 10px;
+
+    div label:before
+    {
+      height: 18px;
+      width: 18px;
+      font-size: 33px;
+    }
+  }
+}
+

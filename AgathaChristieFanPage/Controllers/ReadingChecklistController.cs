@@ -1,21 +1,22 @@
-﻿using AgathaChristieFanPage.ViewModels;
+﻿using AgathaChristieFanPage.ModelBuilders;
+using AgathaChristieFanPage.ViewModels;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace AgathaChristieFanPage.Controllers
 {
     public class ReadingChecklistController : Controller
     {
-        private IDbService _dbService;
+        private IReadingChecklistModelBuilder _modelBuilder;
 
-        public ReadingChecklistController(IDbService dbService)
+        public ReadingChecklistController(IReadingChecklistModelBuilder modelBuilder)
         {
-            _dbService = dbService;
+            _modelBuilder = modelBuilder;
         }
 
         public ActionResult Index()
         {
-            ReadingChecklistViewModel model = new ReadingChecklistViewModel();
-            model.Novels = _dbService.GetAllNovels();
+            ReadingChecklist model = _modelBuilder.BuildModel();
 
             return View("~/Views/ReadingChecklist.cshtml", model);
         }

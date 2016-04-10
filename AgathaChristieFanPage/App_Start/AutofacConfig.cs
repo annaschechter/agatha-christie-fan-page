@@ -1,6 +1,6 @@
-﻿using Autofac;
+﻿using AgathaChristieFanPage.ModelBuilders;
+using Autofac;
 using Autofac.Integration.Mvc;
-using System.Reflection;
 using System.Web.Mvc;
 
 namespace AgathaChristieFanPage
@@ -16,6 +16,7 @@ namespace AgathaChristieFanPage
 
             // Register services
             builder.RegisterType<DbService>().As<IDbService>();
+            builder.RegisterType<ReadingChecklistModelBuilder>().As<IReadingChecklistModelBuilder>();
 
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
