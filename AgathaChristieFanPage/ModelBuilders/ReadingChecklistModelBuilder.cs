@@ -29,6 +29,7 @@ namespace AgathaChristieFanPage.ModelBuilders
         {
             ReadingChecklistItem model = new ReadingChecklistItem();
             model.NovelName = novel.NovelName;
+            model.NovelId = novel.Id;
             model.PublishingYear = novel.PublishingYear;
             model.ThumbnailUrl = novel.ThumbnailUrl;
             model.Category = novel.Category;

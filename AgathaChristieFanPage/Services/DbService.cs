@@ -1,5 +1,6 @@
 ﻿using AgathaChristieFanPage.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AgathaChristieFanPage
 {
@@ -7,6 +8,8 @@ namespace AgathaChristieFanPage
     {
         IEnumerable<NovelModel> GetAllNovels();
         IEnumerable<ImageModel> GetAllImages();
+        NovelModel GetNovelById(int novelId);
+        IEnumerable<ImageModel> GetImagesForNovel(int novelId);
     }
 
     public class DbService : IDbService
@@ -26,6 +29,16 @@ namespace AgathaChristieFanPage
         public IEnumerable<ImageModel> GetAllImages()
         {
             return _applicationDbContext.Images;
+        }
+
+        public NovelModel GetNovelById(int novelId)
+        {
+            return _applicationDbContext.Novels.FirstOrDefault(novel => novel.Id == novelId);
+        }
+
+        public IEnumerable<ImageModel> GetImagesForNovel(int novelId)
+        {
+            return _applicationDbContext.Images.Where(image => image.NovelId == novelId);
         }
     }
 }

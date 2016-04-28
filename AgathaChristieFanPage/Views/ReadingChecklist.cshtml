@@ -9,9 +9,11 @@
     <table>
         @foreach (var novel in Model.Novels)
         {
-            <tr class="checklist-item">
-                <td class="thumbnail-cell"><img class="thumbnail" src="@novel.ThumbnailUrl" /></td>
-                <td class="novel-name-cell">@novel.NovelName</td>
+            <tr class="checklist-item" ng-controller="ReadingChecklistItem_Controller">
+                <td class="thumbnail-cell" ng-click="ShowNovelDetails(@novel.NovelId)">
+                    <img class="thumbnail" src="@novel.ThumbnailUrl" />
+                </td>
+                <td class="novel-name-cell" ng-click="ShowNovelDetails(@novel.NovelId)">@novel.NovelName</td>
                 <td class="publishing-year-cell">Published in @novel.PublishingYear</td>
                 <td class="category-cell">@novel.Category Series</td>
                 <td class="checkbox-cell">
