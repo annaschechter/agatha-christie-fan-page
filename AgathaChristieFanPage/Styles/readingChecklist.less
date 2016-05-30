@@ -1,6 +1,6 @@
 ﻿@main-dark-colour: #403531;
 @main-light-colour: #f6edea;
-@secondary-color: #A68D8A;
+@secondary-colour: #A68D8A;
 
 .reading-checklist
 {
@@ -91,7 +91,7 @@
               height: 22px;
               margin-right: 8px;
               text-align: center;
-              border: solid 1.7px @secondary-color;
+              border: solid 1.7px @secondary-colour;
               line-height: 9px;
             }
           }
@@ -106,6 +106,8 @@
     }
   }
 }
+
+//browser size specific styles
 
 @media(max-width: 999px)
 {
@@ -127,36 +129,32 @@
 
 @media(max-width: 699px)
 {
-  .reading-checklist table .checklist-item .checkbox-cell
-  {
-    display: block;
-    text-align: center;
-    font-size: 12px;
-    position: absolute;
-    width: calc(~"100% - 20px");
-    left: 10px;
-  }
-
   .reading-checklist table .checklist-item
   {
-    height: 120px
+    height: 120px;
+
+    .checkbox-cell
+    {
+      display: block;
+      text-align: center;
+      font-size: 12px;
+      position: absolute;
+      width: calc(~"100% - 20px");
+      left: 10px;
+      margin-top: 10px;
+
+      div label:before
+      {
+        height: 18px;
+        width: 18px;
+        font-size: 33px;
+      }
+    }
   }
 
   .thumbnail-cell
   {
     vertical-align: top;
-  }
-
-  .reading-checklist table .checklist-item .checkbox-cell
-  {
-    margin-top: 10px;
-
-    div label:before
-    {
-      height: 18px;
-      width: 18px;
-      font-size: 33px;
-    }
   }
 }
 

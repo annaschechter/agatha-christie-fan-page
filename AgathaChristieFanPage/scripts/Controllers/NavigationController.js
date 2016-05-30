@@ -20,5 +20,5 @@ var Controllers;
     })();
     Controllers.NavigationController = NavigationController;
 })(Controllers || (Controllers = {}));
-app.controller("Navigation_Controller", Controllers.NavigationController);
+app.controller("NavigationController", Controllers.NavigationController);
 //# sourceMappingURL=NavigationController.js.map

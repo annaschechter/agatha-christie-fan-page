@@ -26,4 +26,4 @@ module Controllers
     }
 }
 
-app.controller("Navigation_Controller", Controllers.NavigationController);
+app.controller("NavigationController", Controllers.NavigationController);

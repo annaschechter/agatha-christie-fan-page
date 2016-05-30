@@ -1,4 +1,4 @@
-﻿module Scopes
+﻿declare module Scopes
 {
     export interface NavigationScope extends ng.IScope
     {

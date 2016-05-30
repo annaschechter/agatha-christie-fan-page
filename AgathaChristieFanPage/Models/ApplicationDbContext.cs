@@ -5,7 +5,9 @@ namespace AgathaChristieFanPage.Models
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext() : base("ApplicationDbContext")
-        { }
+        {
+            base.Configuration.ProxyCreationEnabled = false;
+        }
 
         public static ApplicationDbContext Create()
         {

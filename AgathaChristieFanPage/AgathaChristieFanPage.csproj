@@ -120,6 +120,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -184,6 +185,7 @@
     <Content Include="Scripts\jquery-2.2.2.min.js" />
     <Content Include="Styles\images\burger-icon-hover.png" />
     <Content Include="Styles\images\burger-icon.png" />
+    <Content Include="Styles\images\close-icon-light.png" />
     <Content Include="Styles\images\main-header-image.jpg" />
     <Content Include="Styles\images\menu-close-icon-hover.png" />
     <Content Include="Styles\images\menu-close-icon.png" />
@@ -221,6 +223,7 @@
     <Content Include="Styles\masterLayout.less" />
     <Content Include="Views\ReadingChecklist.cshtml" />
     <Content Include="Styles\readingChecklist.less" />
+    <Content Include="Styles\novelDetailsOverlay.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -233,11 +236,16 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\ACFanPage.ts" />
-    <TypeScriptCompile Include="Scripts\Controllers\ReadingChecklistItemController.ts" />
+    <TypeScriptCompile Include="Scripts\Controllers\NovelDetailsController.ts" />
+    <TypeScriptCompile Include="Scripts\Controllers\ReadingChecklistController.ts" />
     <TypeScriptCompile Include="Scripts\Controllers\NavigationController.ts" />
+    <TypeScriptCompile Include="Scripts\Data\Image.d.ts" />
+    <TypeScriptCompile Include="Scripts\Data\Novel.d.ts" />
+    <TypeScriptCompile Include="Scripts\Directives\CarouselImageDirective.ts" />
     <TypeScriptCompile Include="Scripts\Directives\MenuDrawerDirective.ts" />
-    <TypeScriptCompile Include="Scripts\Scopes\ReadingChecklistItemScope.ts" />
-    <TypeScriptCompile Include="Scripts\Scopes\NavigationScope.ts" />
+    <TypeScriptCompile Include="Scripts\Scopes\NovelDetailsScope.d.ts" />
+    <TypeScriptCompile Include="Scripts\Scopes\ReadingChecklistScope.d.ts" />
+    <TypeScriptCompile Include="Scripts\Scopes\NavigationScope.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />

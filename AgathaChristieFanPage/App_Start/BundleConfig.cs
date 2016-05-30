@@ -17,10 +17,12 @@ namespace AgathaChristieFanPage
             angularBundle.Include("~/Scripts/Controllers/*.js");
             angularBundle.Include("~/Scripts/Directives/*.js");
             angularBundle.Include("~/Scripts/Scopes/*.js");
+            angularBundle.Include("~/Scripts/Data/*.js");
 
             var stylesBundle = new StyleBundle("~/bundle/styles");
             stylesBundle.Include("~/Styles/masterLayout.less");
             stylesBundle.Include("~/Styles/readingChecklist.less");
+            stylesBundle.Include("~/Styles/novelDetailsOverlay.less");
             stylesBundle.Transforms.Add(new LessTransform());
             stylesBundle.Transforms.Add(new CssMinify());
 
