@@ -1,19 +1,25 @@
 ﻿@main-dark-colour: #403531;
 @main-light-colour: #f6edea;
 @secondary-color: #A68D8A;
+@half-header-height-desktop: 70px;
+@half-header-height-tablet: 50px;
+@half-header-height-mobile: 40px;
 
 body
 {
   margin: 0;
+  height: 100%;
 }
 
 header 
 {
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
 
   .logo-section
   {
-    height: 70px;
+    height: @half-header-height-desktop;
     background-color: @main-dark-colour;
     text-align: center;
 
@@ -26,7 +32,7 @@ header
 
   nav
   {
-    height: 70px;
+    height: @half-header-height-desktop;
     display: block;
     width: 100%;
     text-align: center;
@@ -47,7 +53,7 @@ header
         width: 20%;
         text-align: center;
         vertical-align: middle;
-        height: 70px;
+        height: @half-header-height-desktop;
 
         a
         {
@@ -141,13 +147,14 @@ header
         }
       }
     }
+}
 
-  .header-image
-  {
-    height: 380px;
-    background-image: url("../Styles/images/main-header-image.jpg");
-    background-size: 100% 100%;
-  }
+.header-image
+{
+  height: 380px;
+  background-image: url("../Styles/images/main-header-image.jpg");
+  background-size: 100% 100%;
+  margin-top: 2*@half-header-height-desktop;
 }
   
 .body-content
@@ -205,7 +212,7 @@ footer
   {
     .logo-section
     {
-      height: 50px;
+      height: @half-header-height-tablet;
 
       img.logo
       {
@@ -214,17 +221,18 @@ footer
       }
     }
 
-  nav
-  {
-    height: 50px;
-
-    ul 
+    nav
     {
-      font-size: 12px;
+      height: @half-header-height-tablet;
 
-      li
+      ul 
       {
-        height: 50px;
+        font-size: 12px;
+
+        li
+        {
+          height: @half-header-height-tablet;
+        }
       }
     }
   }
@@ -232,8 +240,8 @@ footer
   .header-image
   {
     height: 200px;
+    margin-top: 2*@half-header-height-tablet;
   }
-}
   
   .body-content
   {
@@ -268,7 +276,7 @@ footer
   {
     .logo-section
     {
-      height: 40px;
+      height: @half-header-height-mobile;
       text-align: left;
 
       img.logo
@@ -280,7 +288,7 @@ footer
 
     nav
     {
-      height: 40px;
+      height: @half-header-height-mobile;
 
       ul
       {
@@ -292,11 +300,12 @@ footer
         display: block;
       }
     }
+  }
 
-    .header-image
-    {
-      height: 150px;
-    }
+  .header-image
+  {
+    height: 150px;
+    margin-top: 2*@half-header-height-mobile;
   }
 
   .body-content .page-title
