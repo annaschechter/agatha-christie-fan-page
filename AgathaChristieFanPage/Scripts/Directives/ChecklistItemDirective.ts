@@ -7,7 +7,7 @@
 
         constructor(private localStorageService: Services.LocalStorageService) {}
 
-        link = (scope, element: JQuery, attrs: ng.IAttributes) =>
+        public link = (scope, element: JQuery, attrs: ng.IAttributes) =>
         {
             var checklistItem: Data.ChecklistItem = this.localStorageService.GetUserChecklistItem(scope.novel.NovelName);
             if (checklistItem)

@@ -1,28 +1,31 @@
 ﻿module Directives
 {
-    export function CarouselImageDirective(): ng.IDirective
+    export class CarouselImageDirective implements ng.IDirective
     {
-        return {
-            restrict: "A",
-            scope: { activeImageId: '@' },
-            link: (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes) =>
+        public restrict = "A";
+        public scope = { activeImageId: '@' };
+
+        public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes) =>
+        {
+            var imageId: number = attrs["carouselImageDirective"];
+            scope.$watch('activeImageId', (newValue) =>
             {
-                //element.hide();
-                var imageId: number = attrs["carouselImageDirective"];
-                scope.$watch('activeImageId', (newValue) =>
+                if (newValue === imageId)
                 {
-                    if (newValue === imageId)
-                    {
-                        element.fadeIn();
-                    }
-                    else
-                    {
-                        element.fadeOut();
-                    }
-                })
-            }
+                    element.fadeIn();
+                }
+                else
+                {
+                    element.fadeOut();
+                }
+            })
+        }
+
+        static Factory(): ng.IDirectiveFactory
+        {
+            return () => new CarouselImageDirective();
         }
     }
 
-    app.directive("carouselImageDirective", Directives.CarouselImageDirective);
+    app.directive("carouselImageDirective", Directives.CarouselImageDirective.Factory());
 }
