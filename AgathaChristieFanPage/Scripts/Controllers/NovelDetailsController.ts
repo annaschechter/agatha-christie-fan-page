@@ -55,7 +55,10 @@ module Controllers
                 PublishingYear: data.publishingYear,
                 Category: data.category,
                 Description: data.description,
-                Images: this.ConvertDataImagesToImages(data)
+                Images: this.ConvertDataImagesToImages(data),
+                Read: false,
+                Watched: false,
+                OwnACopy: false
             }
         }
 

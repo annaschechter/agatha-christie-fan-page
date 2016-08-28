@@ -18,6 +18,7 @@ namespace AgathaChristieFanPage
             angularBundle.Include("~/Scripts/Directives/*.js");
             angularBundle.Include("~/Scripts/Scopes/*.js");
             angularBundle.Include("~/Scripts/Data/*.js");
+            angularBundle.Include("~/Scripts/Services/*.js");
 
             var stylesBundle = new StyleBundle("~/bundle/styles");
             stylesBundle.Include("~/Styles/masterLayout.less");

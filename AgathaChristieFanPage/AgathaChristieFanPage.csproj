@@ -179,6 +179,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\TheMurderOnTheLinks\image1.png" />
+    <Content Include="Content\TheMurderOnTheLinks\image2.png" />
+    <Content Include="Content\TheMurderOnTheLinks\image3.png" />
+    <Content Include="Content\TheMurderOnTheLinks\image4.png" />
+    <Content Include="Content\TheMurderOnTheLinks\thumbnail.JPG" />
     <Content Include="Content\TheMysteriousAffairAtStyles\thumbnail.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\angular.min.js" />
@@ -240,12 +245,15 @@
     <TypeScriptCompile Include="Scripts\Controllers\ReadingChecklistController.ts" />
     <TypeScriptCompile Include="Scripts\Controllers\NavigationController.ts" />
     <TypeScriptCompile Include="Scripts\Data\Image.d.ts" />
+    <TypeScriptCompile Include="Scripts\Data\ChecklistItem.d.ts" />
     <TypeScriptCompile Include="Scripts\Data\Novel.d.ts" />
+    <TypeScriptCompile Include="Scripts\Directives\ChecklistItemDirective.ts" />
     <TypeScriptCompile Include="Scripts\Directives\CarouselImageDirective.ts" />
     <TypeScriptCompile Include="Scripts\Directives\MenuDrawerDirective.ts" />
     <TypeScriptCompile Include="Scripts\Scopes\NovelDetailsScope.d.ts" />
     <TypeScriptCompile Include="Scripts\Scopes\ReadingChecklistScope.d.ts" />
     <TypeScriptCompile Include="Scripts\Scopes\NavigationScope.d.ts" />
+    <TypeScriptCompile Include="Scripts\Services\LocalStorageService.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />

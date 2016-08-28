@@ -1,37 +1,37 @@
 ﻿@model AgathaChristieFanPage.ViewModels.ReadingChecklist
 
 @{ Layout = ""; }
+<script>
+    window.app.value('novelsData', @Html.Raw(@Json.Encode(Model.Novels)));
+</script>
 
 <div class="page-title">
     <h1>READING CHECKLIST</h1>
 </div>
 <article class="reading-checklist" ng-controller="ReadingChecklistController">
     <table>
-        @foreach (var novel in Model.Novels)
-        {
-            <tr class="checklist-item">
-                <td class="thumbnail-cell" ng-click="ShowNovelDetails(@novel.NovelId)">
-                    <img class="thumbnail" src="@novel.ThumbnailUrl" />
-                </td>
-                <td class="novel-name-cell" ng-click="ShowNovelDetails(@novel.NovelId)">@novel.NovelName</td>
-                <td class="publishing-year-cell">Published in @novel.PublishingYear</td>
-                <td class="category-cell">@novel.Category</td>
-                <td class="checkbox-cell">
-                    <div>
-                        <input id="read-@novel.NovelName" type="checkbox" name="read">
-                        <label for="read-@novel.NovelName">Read</label>
-                    </div>
-                    <div>
-                        <input id="watched-@novel.NovelName" type="checkbox" name="watched">
-                        <label for="watched-@novel.NovelName">Watched</label>
-                    </div>
-                    <div>
-                        <input id="ownACopy-@novel.NovelName" type="checkbox" name="ownACopy">
-                        <label for="ownACopy-@novel.NovelName">Own a Copy</label>
-                    </div>
-                </td>
-            </tr>
-        }
+        <tr ng-repeat="novel in Novels" checklist-item-directive class="checklist-item">
+            <td class="thumbnail-cell" ng-click="ShowNovelDetails(novel.NovelId)">
+                <img class="thumbnail" ng-src="{{::novel.ThumbnailUrl}}" />
+            </td>
+            <td class="novel-name-cell" ng-click="ShowNovelDetails(novel.NovelId)">{{::novel.NovelName}}</td>
+            <td class="publishing-year-cell">Published in {{::novel.PublishingYear}}</td>
+            <td class="category-cell">{{::novel.Category}}</td>
+            <td class="checkbox-cell">
+                <div>
+                    <input id="read-{{::novel.NovelName}}" type="checkbox" ng-model="novel.Read">
+                    <label for="read-{{::novel.NovelName}}">Read</label>
+                </div>
+                <div>
+                    <input id="watched-{{::novel.NovelName}}" type="checkbox" ng-model="novel.Watched">
+                    <label for="watched-{{::novel.NovelName}}">Watched</label>
+                </div>
+                <div>
+                    <input id="ownACopy-{{::novel.NovelName}}" type="checkbox" ng-model="novel.OwnACopy">
+                    <label for="ownACopy-{{::novel.NovelName}}">Own a Copy</label>
+                </div>
+            </td>
+        </tr>
     </table>
     <div class="novel-details-overlay" ng-controller="NovelDetailsController" ng-show="IsDisplaying">
         <button class="overlay-close-button" ng-click="CloseOverlay()"></button>

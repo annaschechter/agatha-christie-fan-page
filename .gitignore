@@ -2,6 +2,8 @@
 bin/
 obj/
 *.suo
+*.js
+*.js.map
 
 # Created by https://www.gitignore.io/api/visualstudio
 
