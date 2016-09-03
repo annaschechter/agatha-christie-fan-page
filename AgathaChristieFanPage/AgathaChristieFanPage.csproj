@@ -194,8 +194,11 @@
     <Content Include="Styles\images\main-header-image.jpg" />
     <Content Include="Styles\images\menu-close-icon-hover.png" />
     <Content Include="Styles\images\menu-close-icon.png" />
+    <Content Include="Styles\images\own-a-copy-icon.png" />
+    <Content Include="Styles\images\read-icon.png" />
     <Content Include="Styles\images\site-logo-icon.png" />
     <Content Include="Styles\images\site-logo.png" />
+    <Content Include="Styles\images\watched-icon.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +232,7 @@
     <Content Include="Views\ReadingChecklist.cshtml" />
     <Content Include="Styles\readingChecklist.less" />
     <Content Include="Styles\novelDetailsOverlay.less" />
+    <Content Include="Views\_NovelDetailsPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

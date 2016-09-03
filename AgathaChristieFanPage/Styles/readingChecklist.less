@@ -105,6 +105,67 @@
       }
     }
   }
+
+  .checklist-summary
+  {
+    background-color: @main-light-colour;
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: solid 2px @secondary-colour;
+
+    h4
+    {
+      margin: 0;
+    }
+
+    .filter
+    {
+      font-family: 'Black Ops One', cursive;
+      font-size: 13px;
+      height: 40px;
+      text-align: right;
+
+      .filter-icon
+      {
+        width: 22px;
+        height: 22px;
+        background-size: 100%;
+        display: inline-block;
+        margin-right: 8px;
+      }
+
+      progress[value]
+      {
+        background: @main-light-colour;
+        border: solid 1px @secondary-colour;
+        height: 15px;
+        width: 140px;
+        margin-left: 15px;
+      }
+
+      /*For firefox*/
+      progress::-moz-progress-bar 
+      { 
+        background: @main-dark-colour;
+      }
+      /*For webkit browsers*/
+      progress::-webkit-progress-bar 
+      {
+        background: @main-light-colour;
+        border: solid 1px @secondary-colour;
+      }
+      progress::-webkit-progress-value 
+      {
+        background: @main-dark-colour;
+      }
+      /*For IE*/
+      progress::-ms-fill
+      { 
+        background: @main-dark-colour;
+      }
+    }
+  }
 }
 
 //browser size specific styles
@@ -124,6 +185,11 @@
   .category-cell
   {
     padding-bottom: 8px;
+  }
+
+  .reading-checklist .checklist-summary h4
+  {
+    margin-bottom: 15px;
   }
 }
 
@@ -155,6 +221,11 @@
   .thumbnail-cell
   {
     vertical-align: top;
+  }
+
+  .reading-checklist .checklist-summary .filter progress[value]
+  {
+      width: 90px;
   }
 }
 

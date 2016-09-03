@@ -29,21 +29,6 @@ module Controllers
                 this._scope.$broadcast("show-novel-details", response.data);
             });
         }
-
-        //private ReadClick(novelName: string): void
-        //{
-        //    var checklistItem: Data.ChecklistItem = this._localStorageService.GetUserChecklistItem(novelName);
-        //    if (checklistItem)
-        //    {
-        //        checklistItem.Read = !checklistItem.Read;
-        //    }
-        //    else
-        //    {
-        //        checklistItem = { NovelName: novelName, Read: true, Watched: false, OwnACopy: false }
-        //    }
-
-        //    this._localStorageService.UpdateChecklist(checklistItem);
-        //}
     }
 }
 

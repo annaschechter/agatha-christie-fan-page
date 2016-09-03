@@ -33,6 +33,24 @@
             </td>
         </tr>
     </table>
+    <div class="checklist-summary">
+        <h4>This is your checklist summary. Out of all novels ever written by Agatha Christie you have:</h4>
+        <div class="filter">
+            <div class="filter-icon" style="background-image: url('/Styles/images/read-icon.png')"></div>
+            Read: {{(Novels | filter:{ Read: 'true'}).length}}/{{Novels.length}}
+            <progress max="{{Novels.length}}" value="{{(Novels | filter:{ Read: 'true'}).length}}"></progress>
+        </div>
+        <div class="filter">
+            <div class="filter-icon" style="background-image: url('/Styles/images/watched-icon.png')"></div>
+            Watched: {{(Novels | filter:{ Watched: 'true'}).length}}/{{Novels.length}}
+            <progress max="{{Novels.length}}" value="{{(Novels | filter:{ Watched: 'true'}).length}}"></progress>
+        </div>
+        <div class="filter">
+            <div class="filter-icon" style="background-image: url('/Styles/images/own-a-copy-icon.png')"></div>
+            Own A Copy: {{(Novels | filter:{ OwnACopy: 'true'}).length}}/{{Novels.length}}
+            <progress max="{{Novels.length}}" value="{{(Novels | filter:{ OwnACopy: 'true'}).length}}"></progress>
+        </div>
+    </div>
 
     @Html.Partial("~/Views/_NovelDetailsPartial.cshtml")
 </article>
