@@ -1,0 +1,20 @@
+﻿<div class="novel-details-overlay" ng-controller="NovelDetailsController" ng-show="IsDisplaying">
+    <button class="overlay-close-button" ng-click="CloseOverlay()"></button>
+    <div class="overlay-content">
+        <h2>{{Novel.NovelName}}</h2>
+        <div class="image-carousel">
+            <img ng-src="{{Novel.Images[0].ImageUrl}}" />
+            <button class="arrow previous" ng-show="ActiveImageId !== 1" ng-click="PreviousImage()">&#10094;</button>
+            <button class="arrow next" ng-show="ActiveImageId !== Novel.Images.length" ng-click="NextImage()">&#10095;</button>
+            <ul class="carousel-images">
+                <li ng-repeat="image in Novel.Images" carousel-image-directive="{{image.Id}}" active-image-id="{{ActiveImageId}}">
+                    <img ng-src="{{image.ImageUrl}}" />
+                </li>
+            </ul>
+        </div>
+        <div class="novel-details">
+            <h4>{{Novel.Category === "Other" ? "" : Novel.Category}} <span>(Published in {{Novel.PublishingYear}})</span></h4>
+            <p>{{Novel.Description}}</p>
+        </div>
+    </div>
+</div>

@@ -6,11 +6,12 @@
     <title>Agatha Christie Fan Page</title>
     <link rel="shortcut icon" href="~/Styles/images/site-logo-icon.png">
     <link href='https://fonts.googleapis.com/css?family=Black+Ops+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
     @Styles.Render("~/bundle/styles")
     @Scripts.Render("~/bundle/angular")
 </head>
 <body ng-app="ACFanPage">
-    <header ng-controller="Navigation_Controller">
+    <header ng-controller="NavigationController">
         <section class="logo-section">
             <a href='@Url.Action("Index", "Home")'>
                 <img class ="logo" src='@Url.Content("~/Styles/images/site-logo.png")' />
@@ -36,10 +37,8 @@
                 </ul>
             </div>
         </section>
-
-        <section class="header-image"></section>
     </header>
-
+    <section class="header-image"></section>
     <section class="body-content">
         @RenderBody()
     </section>

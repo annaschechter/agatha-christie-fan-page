@@ -1,0 +1,56 @@
+﻿@model AgathaChristieFanPage.ViewModels.ReadingChecklist
+
+@{ Layout = ""; }
+<script>
+    window.app.value('novelsData', @Html.Raw(@Json.Encode(Model.Novels)));
+</script>
+
+<div class="page-title">
+    <h1>READING CHECKLIST</h1>
+</div>
+<article class="reading-checklist" ng-controller="ReadingChecklistController">
+    <table>
+        <tr ng-repeat="novel in Novels" checklist-item-directive class="checklist-item">
+            <td class="thumbnail-cell" ng-click="ShowNovelDetails(novel.NovelId)">
+                <img class="thumbnail" ng-src="{{::novel.ThumbnailUrl}}" />
+            </td>
+            <td class="novel-name-cell" ng-click="ShowNovelDetails(novel.NovelId)">{{::novel.NovelName}}</td>
+            <td class="publishing-year-cell">Published in {{::novel.PublishingYear}}</td>
+            <td class="category-cell">{{::novel.Category}}</td>
+            <td class="checkbox-cell">
+                <div>
+                    <input id="read-{{::novel.NovelName}}" type="checkbox" ng-model="novel.Read">
+                    <label for="read-{{::novel.NovelName}}">Read</label>
+                </div>
+                <div>
+                    <input id="watched-{{::novel.NovelName}}" type="checkbox" ng-model="novel.Watched">
+                    <label for="watched-{{::novel.NovelName}}">Watched</label>
+                </div>
+                <div>
+                    <input id="ownACopy-{{::novel.NovelName}}" type="checkbox" ng-model="novel.OwnACopy">
+                    <label for="ownACopy-{{::novel.NovelName}}">Own a Copy</label>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="checklist-summary">
+        <h4>This is your checklist summary. Out of all novels ever written by Agatha Christie you have:</h4>
+        <div class="filter">
+            <div class="filter-icon" style="background-image: url('/Styles/images/read-icon.png')"></div>
+            Read: {{(Novels | filter:{ Read: 'true'}).length}}/{{Novels.length}}
+            <progress max="{{Novels.length}}" value="{{(Novels | filter:{ Read: 'true'}).length}}"></progress>
+        </div>
+        <div class="filter">
+            <div class="filter-icon" style="background-image: url('/Styles/images/watched-icon.png')"></div>
+            Watched: {{(Novels | filter:{ Watched: 'true'}).length}}/{{Novels.length}}
+            <progress max="{{Novels.length}}" value="{{(Novels | filter:{ Watched: 'true'}).length}}"></progress>
+        </div>
+        <div class="filter">
+            <div class="filter-icon" style="background-image: url('/Styles/images/own-a-copy-icon.png')"></div>
+            Own A Copy: {{(Novels | filter:{ OwnACopy: 'true'}).length}}/{{Novels.length}}
+            <progress max="{{Novels.length}}" value="{{(Novels | filter:{ OwnACopy: 'true'}).length}}"></progress>
+        </div>
+    </div>
+
+    @Html.Partial("~/Views/_NovelDetailsPartial.cshtml")
+</article>
