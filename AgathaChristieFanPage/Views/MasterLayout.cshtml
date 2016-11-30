@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -23,7 +25,21 @@
                 <li><a href="#">ABOUT</a></li>
                 <li></li>
                 <li><a href="#">QUIZ</a></li>
-                <li><a href="#">FORUM</a></li>
+                <li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Logged in as " + User.Identity.GetUserName() + "!", "Index", "Manage")
+                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <input type="submit" value="LOG OUT"/>
+                        }
+                    }
+                    else
+                    {
+                        @Html.ActionLink("LOG IN/SIGN UP", "Login", "Account")
+                    }
+                </li>
             </ul>
             <button ng-class="{'menu-open': IsMenuDrawerOpen}" class="burger-menu" ng-click="OpenMenuDrawer()"></button>
         </nav>
@@ -33,7 +49,21 @@
                     <li><a href="#">HOME</a></li>
                     <li><a href="#">ABOUT</a></li>
                     <li><a href="#">QUIZ</a></li>
-                    <li><a href="#">FORUM</a></li>
+                    <li>
+                        @if (Request.IsAuthenticated)
+                        {
+                            @Html.ActionLink("Logged in as " + User.Identity.GetUserName() + "!", "Index", "Manage")
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="submit" value="LOG OUT" />
+                            }
+                        }
+                        else
+                        {
+                            @Html.ActionLink("LOG IN/SIGN UP", "Login", "Account")
+                        }
+                    </li>
                 </ul>
             </div>
         </section>

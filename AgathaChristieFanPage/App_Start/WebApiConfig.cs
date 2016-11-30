@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace AgathaChristieFanPage.App_Start
+namespace AgathaChristieFanPage
 {
     public static class WebApiConfig
     {

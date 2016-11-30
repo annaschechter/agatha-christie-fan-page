@@ -1,10 +1,13 @@
-﻿using System.Data.Entity;
+﻿using AgathaChristieFanPage.Models.Auth;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
+
 
 namespace AgathaChristieFanPage.Models
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext() : base("ApplicationDbContext")
+        public ApplicationDbContext() : base("ACFanPage", throwIfV1Schema: false)
         {
             base.Configuration.ProxyCreationEnabled = false;
         }
