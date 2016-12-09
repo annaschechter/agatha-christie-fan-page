@@ -21,12 +21,12 @@
   {
     width: 300px;
     margin: auto;
+    margin-bottom: 20px;
 
     input
     {
       display: block;
       margin: 7px 0px;
-      //background-color: @secondary-colour;
       border: none;
       height: 30px;
       width: 100%;
@@ -46,9 +46,16 @@
       margin-right: 10px;
     }
 
-    .sign-up
+    .text-danger
     {
-      color: @secondary-colour;
+      color: red;
+      display: block;
+      font-size: 0.8em;
+
+      ul
+      {
+        padding-left: 15px;
+      }
     }
   }
 
@@ -60,4 +67,25 @@
   background-color: @main-light-colour;
   display: table-cell;
   padding: 20px;
+}
+
+@media(max-width: 699px)
+{
+  .auth-page
+  {
+    display: block;
+    width: 100%;
+  }
+   .auth-form, .social-login-form
+  {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+
+    form
+    {
+      display: inline;
+    }
+  }
 }
