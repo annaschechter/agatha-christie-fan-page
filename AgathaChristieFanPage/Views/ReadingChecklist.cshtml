@@ -5,9 +5,8 @@
     window.app.value('novelsData', @Html.Raw(@Json.Encode(Model.Novels)));
 </script>
 
-<div class="page-title">
-    <h1>READING CHECKLIST</h1>
-</div>
+@Html.Partial("~/Views/_PageTitlePartial.cshtml", null, new ViewDataDictionary { { "PageTitle", "READING CHECKLIST" } })
+
 <article class="reading-checklist" ng-controller="ReadingChecklistController">
     <table>
         <tr ng-repeat="novel in Novels" checklist-item-directive class="checklist-item">

@@ -1,0 +1,63 @@
+﻿@main-dark-colour: #403531;
+@main-light-colour: #f6edea;
+@secondary-colour: #A68D8A;
+
+.auth-page
+{
+  display: table;
+  border-collapse: separate;
+  border-spacing: 20px;
+  color: @main-dark-colour;
+  font-weight: bold;
+}
+.auth-form
+{
+  background-color: @main-light-colour;
+  display: table-cell;
+  width: 50%;
+  padding: 20px;
+
+  form
+  {
+    width: 300px;
+    margin: auto;
+
+    input
+    {
+      display: block;
+      margin: 7px 0px;
+      //background-color: @secondary-colour;
+      border: none;
+      height: 30px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .remember-me
+    {
+      float: left;
+      line-height: 44px;
+    }
+
+    .remember-me-box
+    {
+      width: 18px;
+      float: left;
+      margin-right: 10px;
+    }
+
+    .sign-up
+    {
+      color: @secondary-colour;
+    }
+  }
+
+
+}
+
+.social-login-form
+{
+  background-color: @main-light-colour;
+  display: table-cell;
+  padding: 20px;
+}

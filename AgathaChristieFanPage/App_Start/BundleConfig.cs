@@ -24,6 +24,7 @@ namespace AgathaChristieFanPage
             stylesBundle.Include("~/Styles/masterLayout.less");
             stylesBundle.Include("~/Styles/readingChecklist.less");
             stylesBundle.Include("~/Styles/novelDetailsOverlay.less");
+            stylesBundle.Include("~/Styles/authorisation.less");
             stylesBundle.Transforms.Add(new LessTransform());
             stylesBundle.Transforms.Add(new CssMinify());
 

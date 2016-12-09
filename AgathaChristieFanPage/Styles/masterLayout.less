@@ -1,6 +1,7 @@
 ﻿@main-dark-colour: #403531;
 @main-light-colour: #f6edea;
 @secondary-color: #A68D8A;
+@secondary-color-light:#c9bab8; 
 @half-header-height-desktop: 70px;
 @half-header-height-tablet: 50px;
 @half-header-height-mobile: 40px;
@@ -9,6 +10,27 @@ body
 {
   margin: 0;
   height: 100%;
+}
+
+.btn
+{
+  display: block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 35px;
+  height: 35px !important;
+  width: 100% !important;
+  color: @main-dark-colour;
+  background-color: @secondary-color-light;
+  text-decoration: none;
+  border: none !important;
+  font-weight: bold;
+  font-family: 'PT Serif', serif;
+
+  &:hover
+  {
+    background-color: @secondary-color;
+  }
 }
 
 header 
@@ -172,24 +194,34 @@ header
   .page-title
   {
     margin: auto;
+    display: table;
+    border-spacing: 10px;
 
     h1
     {
       border: solid 2px @secondary-color;
       padding: 5px;
       font-size: 18px;
-      display: inline-block;
+      display: table-cell;
       font-family: 'Black Ops One', cursive;
       font-weight: normal;
+      text-align: center;
+      white-space: nowrap;
     }
 
-    &:before, &:after
+    .hor-line
     {
-      content: "";
-      display: inline-block;
-      width: calc(~"(100% - 220px - 32px)/2");
-      border-bottom: solid 2px @secondary-color;
-      margin: 0 8px;
+      display: table-cell;
+      width: 50%;
+      vertical-align: middle;
+
+      span
+      {
+        background-color: @secondary-color;
+        height: 2px;
+        width: 100%;
+        display: block;
+      }
     }
   }
 }
@@ -249,17 +281,9 @@ footer
     width: auto;
     min-width: unset;
 
-    .page-title
+    .page-title h1
     {
-      h1
-      {
-        font-size: 16px;
-      }
-      
-      &:before, &:after
-      {
-        width: calc(~"(100% - 200px - 32px)/2");
-      }
+      font-size: 16px;
     }
   }
 
@@ -308,17 +332,8 @@ footer
     margin-top: 2*@half-header-height-mobile;
   }
 
-  .body-content .page-title
+  .body-content .page-title h1
   {
-      h1
-      {
-        font-size: 12px;
-      }
-      
-      &:before, &:after
-      {
-        width: calc(~"(100% - 155px - 8px)/2");
-        margin: 0 2px;
-      }
+    font-size: 12px;
   }
 }

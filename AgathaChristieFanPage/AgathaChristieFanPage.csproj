@@ -295,6 +295,14 @@
     <Content Include="Views\Auth\Account\SendCode.cshtml" />
     <Content Include="Views\Auth\Account\VerifyCode.cshtml" />
     <Content Include="Views\Auth\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Auth\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Auth\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Auth\Manage\Index.cshtml" />
+    <Content Include="Views\Auth\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Auth\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Auth\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Styles\authorisation.less" />
+    <Content Include="Views\_PageTitlePartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
