@@ -9,6 +9,8 @@
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary("", new { @class = "text-danger" })
+            @Html.LabelFor(m => m.DisplayName)
+            @Html.TextBoxFor(m => m.DisplayName)
             @Html.LabelFor(m => m.Email)
             @Html.TextBoxFor(m => m.Email)
             @Html.LabelFor(m => m.Password)

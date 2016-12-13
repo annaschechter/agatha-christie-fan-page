@@ -254,6 +254,7 @@
     <Compile Include="Controllers\Auth\ManageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReadingChecklistController.cs" />
+    <Compile Include="Helpers\CurrentUser.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelBuilders\ReadingChecklistModelBuilder.cs" />
     <Compile Include="ViewModels\Auth\AccountViewModels.cs" />

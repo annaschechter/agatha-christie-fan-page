@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
+@using AgathaChristieFanPage.Helpers;
 
 <!DOCTYPE html>
 <html>
@@ -28,7 +29,7 @@
                 <li>
                     @if (Request.IsAuthenticated)
                     {
-                        @Html.ActionLink("Logged in as " + User.Identity.GetUserName() + "!", "Index", "Manage")
+                        @Html.ActionLink("Logged in as " + CurrentUser.GetDisplayName() + "!", "Index", "Manage")
                         using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
                         {
                             @Html.AntiForgeryToken()
