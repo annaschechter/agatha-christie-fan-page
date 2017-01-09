@@ -51,7 +51,6 @@ namespace AgathaChristieFanPage.Controllers.Auth
             }
         }
 
-        //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -60,7 +59,6 @@ namespace AgathaChristieFanPage.Controllers.Auth
             return View("~/Views/Auth/Account/Login.cshtml");
         }
 
-        //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
@@ -86,11 +84,10 @@ namespace AgathaChristieFanPage.Controllers.Auth
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
-                    return View("~/Views/Auth/Login.cshtml", model);
+                    return View("~/Views/Auth/Account/Login.cshtml", model);
             }
         }
 
-        //
         // GET: /Account/VerifyCode
         [AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
@@ -98,12 +95,11 @@ namespace AgathaChristieFanPage.Controllers.Auth
             // Require that the user has already logged in via username/password or external login
             if (!await SignInManager.HasBeenVerifiedAsync())
             {
-                return View("Error");
+                return View("~/Views/Auth/Account/Error.cshtml");
             }
             return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 
-        //
         // POST: /Account/VerifyCode
         [HttpPost]
         [AllowAnonymous]
@@ -133,7 +129,6 @@ namespace AgathaChristieFanPage.Controllers.Auth
             }
         }
 
-        //
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
@@ -141,7 +136,6 @@ namespace AgathaChristieFanPage.Controllers.Auth
             return View("~/Views/Auth/Account/Register.cshtml");
         }
 
-        //
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
@@ -154,15 +148,17 @@ namespace AgathaChristieFanPage.Controllers.Auth
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    //Don't sign in after registration, instead send a confirmation email
+                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    await UserManager.SendEmailAsync(
+                        user.Id, 
+                        "Confirm email address", 
+                        "Please confirm your email address by clicking on the following link <a href=\"" + callbackUrl + "\">Confirm Email Address</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    //Display info
+                    RegisterViewModel cleanModelWithInfo = new RegisterViewModel { InfoMessage = "Thank you for registering with us! Please check your email and confirm your email address, email address needs to be confirmed before you can log in."};
+                    return View("~/Views/Auth/Account/Register.cshtml", cleanModelWithInfo);
                 }
                 AddErrors(result);
             }
@@ -171,20 +167,25 @@ namespace AgathaChristieFanPage.Controllers.Auth
             return View("~/Views/Auth/Account/Register.cshtml", model);
         }
 
-        //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
             if (userId == null || code == null)
             {
-                return View("Error");
+                return View("~/Views/Auth/Account/Error.cshtml");
             }
-            var result = await UserManager.ConfirmEmailAsync(userId, code);
-            return View(result.Succeeded ? "ConfirmEmail" : "Error");
+            try
+            {
+                var result = await UserManager.ConfirmEmailAsync(userId, code);
+                return View(result.Succeeded ? "~/Views/Auth/Account/ConfirmEmail.cshtml" : "~/Views/Auth/Account/Error.cshtml");
+            }
+            catch
+            {
+                return View("~/Views/Auth/Account/Error.cshtml");
+            } 
         }
 
-        //
         // GET: /Account/ForgotPassword
         [AllowAnonymous]
         public ActionResult ForgotPassword()
@@ -192,7 +193,6 @@ namespace AgathaChristieFanPage.Controllers.Auth
             return View();
         }
 
-        //
         // POST: /Account/ForgotPassword
         [HttpPost]
         [AllowAnonymous]
@@ -236,7 +236,6 @@ namespace AgathaChristieFanPage.Controllers.Auth
             return code == null ? View("Error") : View();
         }
 
-        //
         // POST: /Account/ResetPassword
         [HttpPost]
         [AllowAnonymous]
@@ -270,7 +269,6 @@ namespace AgathaChristieFanPage.Controllers.Auth
             return View();
         }
 
-        //
         // POST: /Account/ExternalLogin
         [HttpPost]
         [AllowAnonymous]
@@ -289,7 +287,7 @@ namespace AgathaChristieFanPage.Controllers.Auth
             var userId = await SignInManager.GetVerifiedUserIdAsync();
             if (userId == null)
             {
-                return View("Error");
+                return View("~/Views/Auth/Account/Error.cshtml");
             }
             var userFactors = await UserManager.GetValidTwoFactorProvidersAsync(userId);
             var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
@@ -311,12 +309,11 @@ namespace AgathaChristieFanPage.Controllers.Auth
             // Generate the token and send it
             if (!await SignInManager.SendTwoFactorCodeAsync(model.SelectedProvider))
             {
-                return View("Error");
+                return View("~/Views/Auth/Account/Error.cshtml");
             }
             return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
         }
 
-        //
         // GET: /Account/ExternalLoginCallback
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
@@ -346,7 +343,6 @@ namespace AgathaChristieFanPage.Controllers.Auth
             }
         }
 
-        //
         // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
         [AllowAnonymous]
@@ -384,7 +380,6 @@ namespace AgathaChristieFanPage.Controllers.Auth
             return View(model);
         }
 
-        //
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -394,7 +389,6 @@ namespace AgathaChristieFanPage.Controllers.Auth
             return RedirectToAction("Index", "Home");
         }
 
-        //
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()

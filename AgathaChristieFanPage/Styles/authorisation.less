@@ -1,6 +1,7 @@
 ﻿@main-dark-colour: #403531;
 @main-light-colour: #f6edea;
 @secondary-colour: #A68D8A;
+@warning-colour: #FF3333;
 
 .auth-page
 {
@@ -10,6 +11,15 @@
   color: @main-dark-colour;
   font-weight: bold;
 }
+
+.info-message
+{
+  display: block;
+  margin: 20px;
+  font-weight: bold;
+  color: @warning-colour;
+}
+
 .auth-form
 {
   background-color: @main-light-colour;
@@ -48,7 +58,7 @@
 
     .text-danger
     {
-      color: red;
+      color: @warning-colour;
       display: block;
       font-size: 0.8em;
 

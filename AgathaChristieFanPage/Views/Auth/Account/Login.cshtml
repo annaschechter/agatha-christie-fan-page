@@ -3,6 +3,10 @@
 
 @Html.Partial("~/Views/_PageTitlePartial.cshtml", null, new ViewDataDictionary { { "PageTitle", "LOG IN" } })
 
+@if (Model != null && Model.InfoMessage != null)
+{
+    <p class="info-message">@Model.InfoMessage</p>
+}
 <div class="auth-page">
     <section class="auth-form">
         @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
