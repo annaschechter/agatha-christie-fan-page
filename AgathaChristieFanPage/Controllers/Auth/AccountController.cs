@@ -190,7 +190,7 @@ namespace AgathaChristieFanPage.Controllers.Auth
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
-            return View();
+            return View("~/Views/Auth/Account/ForgotPassword.cshtml");
         }
 
         // POST: /Account/ForgotPassword
@@ -205,35 +205,28 @@ namespace AgathaChristieFanPage.Controllers.Auth
                 if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
                 {
                     // Don't reveal that the user does not exist or is not confirmed
-                    return View("ForgotPasswordConfirmation");
+                    model.InfoMessage = "Please check your email to reset your password.";
+                    return View("~/Views/Auth/Account/ForgotPassword.cshtml", model);
                 }
 
-                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                // Send an email with link
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                model.InfoMessage = "The link for resetting your password has been sent to your email address. Please check your email and follow the link.";
+                return View("~/Views/Auth/Account/ForgotPassword.cshtml", model);
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            model.InfoMessage = "Something went wrong here. Please try again.";
+            return View("~/Views/Auth/Account/ForgotPassword.cshtml", model);
         }
 
-        //
-        // GET: /Account/ForgotPasswordConfirmation
-        [AllowAnonymous]
-        public ActionResult ForgotPasswordConfirmation()
-        {
-            return View();
-        }
-
-        //
         // GET: /Account/ResetPassword
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
-            return code == null ? View("Error") : View();
+            return code == null ? View("~/Views/Auth/Account/Error.cshtml") : View("~/Views/Auth/Account/ResetPassword.cshtml");
         }
 
         // POST: /Account/ResetPassword
@@ -244,29 +237,21 @@ namespace AgathaChristieFanPage.Controllers.Auth
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View("~/Views/Auth/Account/ResetPassword.cshtml");
             }
             var user = await UserManager.FindByNameAsync(model.Email);
+            LoginViewModel loginModel = new LoginViewModel { InfoMessage = "Your password has been reset, please login below" };
             if (user == null)
             {
-                // Don't reveal that the user does not exist
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                return View("~/Views/Auth/Account/Login.cshtml", loginModel);
             }
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                return View("~/Views/Auth/Account/Login.cshtml", loginModel);
             }
             AddErrors(result);
-            return View();
-        }
-
-        //
-        // GET: /Account/ResetPasswordConfirmation
-        [AllowAnonymous]
-        public ActionResult ResetPasswordConfirmation()
-        {
-            return View();
+            return View("~/Views/Auth/Account/Error.cshtml");
         }
 
         // POST: /Account/ExternalLogin
@@ -279,7 +264,6 @@ namespace AgathaChristieFanPage.Controllers.Auth
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
 
-        //
         // GET: /Account/SendCode
         [AllowAnonymous]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
@@ -294,7 +278,6 @@ namespace AgathaChristieFanPage.Controllers.Auth
             return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 
-        //
         // POST: /Account/SendCode
         [HttpPost]
         [AllowAnonymous]

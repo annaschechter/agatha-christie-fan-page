@@ -24,17 +24,15 @@
 
             @Html.CheckBoxFor(m => m.RememberMe, new { @class = "remember-me-box" })
             @Html.LabelFor(m => m.RememberMe, new { @class = "remember-me" })
+            <p class="forgot-password">
+                @Html.ActionLink("Forgot your password?", "ForgotPassword", new { controller = "Account" })
+            </p>
 
             <input type="submit" value="LOG IN" class="btn" />
             <p>
                 Not a member yet?
             </p>
-            @Html.ActionLink("SIGN UP", "Register", "Auth", new { @class = "btn" })
-            
-            @* Enable this once you have account confirmation enabled for password reset functionality
-                <p>
-                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                </p>*@
+            @Html.ActionLink("SIGN UP", "Register", new { controller = "Account" }, new { @class = "btn" })
         }
     </section>
     <section class="social-login-form">

@@ -10,6 +10,7 @@
   border-spacing: 20px;
   color: @main-dark-colour;
   font-weight: bold;
+  width: 100%;
 }
 
 .info-message
@@ -18,14 +19,15 @@
   margin: 20px;
   font-weight: bold;
   color: @warning-colour;
+  text-align: center;
 }
 
 .auth-form
 {
   background-color: @main-light-colour;
   display: table-cell;
-  width: 50%;
   padding: 20px;
+  width: auto;
 
   form
   {
@@ -56,6 +58,23 @@
       margin-right: 10px;
     }
 
+    .forgot-password
+    {
+      text-align: right;
+      margin-top: 18px;
+
+      a
+      {
+        color: @main-dark-colour;
+
+        &:hover
+        {
+          color: @secondary-colour;
+        }
+
+      }
+    }
+
     .text-danger
     {
       color: @warning-colour;
@@ -77,6 +96,7 @@
   background-color: @main-light-colour;
   display: table-cell;
   padding: 20px;
+  width: 50%;
 }
 
 @media(max-width: 699px)

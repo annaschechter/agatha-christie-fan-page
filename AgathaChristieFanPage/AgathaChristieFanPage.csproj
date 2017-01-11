@@ -304,11 +304,9 @@
     <Content Include="Views\Auth\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Auth\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Auth\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Auth\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\Auth\Account\Login.cshtml" />
     <Content Include="Views\Auth\Account\Register.cshtml" />
     <Content Include="Views\Auth\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Auth\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Auth\Account\SendCode.cshtml" />
     <Content Include="Views\Auth\Account\VerifyCode.cshtml" />
     <Content Include="Views\Auth\Account\_ExternalLoginsListPartial.cshtml" />
