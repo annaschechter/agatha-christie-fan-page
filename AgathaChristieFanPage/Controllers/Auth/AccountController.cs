@@ -8,6 +8,7 @@ using Microsoft.Owin.Security;
 using AgathaChristieFanPage.App_Start;
 using AgathaChristieFanPage.Models.Auth;
 using AgathaChristieFanPage.ViewModels.Auth;
+using System.Collections.Generic;
 
 namespace AgathaChristieFanPage.Controllers.Auth
 {
@@ -146,7 +147,7 @@ namespace AgathaChristieFanPage.Controllers.Auth
             {
                 var user = new ApplicationUser { DisplayName = model.DisplayName, UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                if (result.Succeeded && !UserManager.IsDisplayNameTaken(model.DisplayName))
                 {
                     //Don't sign in after registration, instead send a confirmation email
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -159,6 +160,12 @@ namespace AgathaChristieFanPage.Controllers.Auth
                     //Display info
                     RegisterViewModel cleanModelWithInfo = new RegisterViewModel { InfoMessage = "Thank you for registering with us! Please check your email and confirm your email address, email address needs to be confirmed before you can log in."};
                     return View("~/Views/Auth/Account/Register.cshtml", cleanModelWithInfo);
+                }
+                if (UserManager.IsDisplayNameTaken(model.DisplayName))
+                {
+                    List<string> updatedList = result.Errors.ToList();
+                    updatedList.Add(string.Format("Display Name '{0}' is already taken", model.DisplayName));
+                    result = new IdentityResult(updatedList);
                 }
                 AddErrors(result);
             }

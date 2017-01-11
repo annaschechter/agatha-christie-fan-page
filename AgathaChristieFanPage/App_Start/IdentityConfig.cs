@@ -12,6 +12,7 @@ using System.Net;
 using System.Configuration;
 using System.Diagnostics;
 using SendGrid;
+using System.Linq;
 
 namespace AgathaChristieFanPage.App_Start
 {
@@ -65,6 +66,12 @@ namespace AgathaChristieFanPage.App_Start
         public ApplicationUserManager(IUserStore<ApplicationUser> store)
             : base(store)
         {
+        }
+
+        public bool IsDisplayNameTaken(string displayName)
+        {
+            var result = Users.Where(user => user.DisplayName == displayName);
+            return result.Count() != 0;
         }
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 

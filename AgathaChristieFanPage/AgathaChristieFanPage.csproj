@@ -267,7 +267,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Auth\AccountController.cs" />
-    <Compile Include="Controllers\Auth\ManageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReadingChecklistController.cs" />
     <Compile Include="Helpers\CurrentUser.cs" />
@@ -275,7 +274,6 @@
     <Compile Include="ModelBuilders\ReadingChecklistModelBuilder.cs" />
     <Compile Include="ViewModels\Auth\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="ViewModels\Auth\ManageViewModels.cs" />
     <Compile Include="Services\DbService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -310,12 +308,6 @@
     <Content Include="Views\Auth\Account\SendCode.cshtml" />
     <Content Include="Views\Auth\Account\VerifyCode.cshtml" />
     <Content Include="Views\Auth\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Auth\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Auth\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Auth\Manage\Index.cshtml" />
-    <Content Include="Views\Auth\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Auth\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Auth\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Styles\authorisation.less" />
     <Content Include="Views\_PageTitlePartial.cshtml" />
     <Content Include="Views\Auth\Account\Error.cshtml" />
